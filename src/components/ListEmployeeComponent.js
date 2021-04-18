@@ -18,7 +18,7 @@ class ListEmployeeComponent extends Component {
         }); 
     } 
     viewEmployee(id){ 
-        this.props.history.push('/viewemployee/'+id); 
+        this.props.history.push('/viewemployee/'+id);    
     } 
     editEmployee(id){ 
         this.props.history.push('/addemployee/'+id); 
