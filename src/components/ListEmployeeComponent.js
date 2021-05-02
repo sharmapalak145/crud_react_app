@@ -1,5 +1,7 @@
 import React, { Component } from 'react' 
 import EmployeeService from '../services/EmployeeService' 
+import { Button, Icon } from "semantic-ui-react";
+import Table from 'react-bootstrap/Table'
 import style from '../styles/style.css'
 
 class ListEmployeeComponent extends Component { 
@@ -36,15 +38,15 @@ class ListEmployeeComponent extends Component {
     render() { 
         return ( 
             <div> 
-                 <h2 className="text-center">Employees List</h2> 
+                 <h2 className="text-center ">Employees List</h2> 
                  <div className = "row"> 
                     <button className="btn btn-primary" onClick={this.addEmployee}> Add Employee</button> 
                  </div> 
                  <br></br> 
                  <div className = "row"> 
-                        <table className = "table table-striped table-bordered"> 
-                            <thead> 
-                                <tr  > 
+                        <Table bordered hover variant="blue" className = " table table-bordered "> 
+                            <thead > 
+                                <tr className="text-center " > 
                                     <th> Employee Id</th> 
                                     <th> Employee Name</th> 
                                     <th> Employee Designation</th> 
@@ -52,7 +54,7 @@ class ListEmployeeComponent extends Component {
                                     <th> Actions</th> 
                                 </tr> 
                             </thead> 
-                            <tbody> 
+                            <tbody className="text-center"> 
                                 { 
                                     this.state.employees.map( 
                                         employee =>  
@@ -62,17 +64,36 @@ class ListEmployeeComponent extends Component {
                                              <td> {employee.designation}</td> 
                                              <td> {employee.salary}</td> 
                                              <td > 
-                                             
-                                                 <button onClick={ () => this.editEmployee(employee.eid)} className="btn btn-info">Update </button> 
+                                             <Button basic color='green' animated 
+                                             onClick={ () => this.viewEmployee(employee.eid)} >
+                                            <Button.Content visible>View</Button.Content>
+                                            <Button.Content hidden>
+                                                <Icon name="eye" />
+                                            </Button.Content>
+                                            </Button>
+                                            <Button basic color='blue' animated style={{marginLeft: "12px"}}
+                                             onClick={ () => this.editEmployee(employee.eid)} >
+                                            <Button.Content visible>Edit</Button.Content>
+                                            <Button.Content hidden>
+                                                <Icon name="edit" />
+                                            </Button.Content>
+                                            </Button>
+                                            <Button basic color='red' animated style={{marginLeft: "12px"}}
+                                             onClick={ () => this.deleteEmployee(employee.eid)} >
+                                            <Button.Content visible>Delete</Button.Content>
+                                            <Button.Content hidden><Icon name="delete"/></Button.Content>
+                                            </Button>
+                                    
+                                                 {/* <button style={{marginLeft: "20px"}} onClick={ () => this.editEmployee(employee.eid)} className="btn btn-info">Edit </button> 
                                                  <button style={{marginLeft: "20px"}} onClick={ () => this.deleteEmployee(employee.eid) } className="btn btn-danger ">Delete </button> 
                                                  <button style={{marginLeft: "20px"}} onClick={ () => this.viewEmployee(employee.eid)} className="btn btn-info">View </button> 
-                                                    
+                                                     */}
                                              </td> 
                                         </tr> 
                                     ) 
                                 } 
                             </tbody> 
-                        </table> 
+                        </Table> 
                  </div> 
             </div> 
         ) 

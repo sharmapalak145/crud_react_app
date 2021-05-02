@@ -28,29 +28,29 @@ class ViewEmployeeComponent extends Component {
                 <br></br> 
                 <h3 className = "text-center"> View Employee Details</h3> 
                 <br></br> 
-                  
-                <table className = "table table-striped table-bordered"> 
+                <button className="btn btn-info" onClick={this.goBack.bind(this)} >Back</button><br/><br/>
+                <table className = "table table-striped table-bordered "> 
                           <tbody>  
                                 <tr> 
-                                    <td>Employee Id</td>  <td> {this.state.employee.eid} </td>                                                                       
+                                    <td className="text-bold">Employee Id</td>  <td> {this.state.employee.eid} </td>                                                                       
                                 </tr> 
 
                                 <tr> 
-                                    <td>Employee Name</td> <td> {this.state.employee.name} </td>                                                                 
+                                    <td className="text-bold">Employee Name</td> <td> {this.state.employee.name} </td>                                                                 
                                 </tr> 
                              
                                 <tr> 
-                                    <td>Employee Designation</td> <td> {this.state.employee.designation}</td> 
+                                    <td className="text-bold">Employee Designation</td> <td> {this.state.employee.designation}</td> 
                                 </tr> 
                              
                                 <tr> 
-                                    <td>Employee Salary</td> <td> {this.state.employee.salary}</td> 
+                                    <td className="text-bold">Employee Salary</td> <td> {this.state.employee.salary}</td> 
                                 </tr> 
                              
                             </tbody>  
                     </table> 
- 
-                        <button className="btn btn-info" onClick={this.goBack.bind(this)} style={{marginLeft: "10px"}}>Back</button> 
+                         
+                          {/* <button className="btn btn-info" onClick={ () => this.editEmployee(employee.eid)}>Edit</button>  */}
                 </div> 
              
         ) 

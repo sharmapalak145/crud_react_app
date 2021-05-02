@@ -8,6 +8,9 @@ import FooterComponent from './components/FooterComponent';
 import CreateEmployeeComponent from './components/CreateEmployeeComponent'; 
 import ViewEmployeeComponent from './components/ViewEmployeeComponent';
 import Modal from './components/Modal';
+import ButtonAnimated from './components/ButtonAnimated'
+import Toasts from './components/Toast'
+import 'semantic-ui-css/semantic.min.css'
  
 function App() { 
   return ( 
@@ -21,7 +24,9 @@ function App() {
                           <Route path = "/employees" component = {ListEmployeeComponent}></Route> 
                           <Route path = "/addemployee/:id" component = {CreateEmployeeComponent}></Route> 
                           <Route path = "/viewemployee/:id" component = {ViewEmployeeComponent}></Route>
-                           <Route path = "/modal" component={Modal}></Route>
+                          <Route path = "/modal" component={Modal}></Route>
+                          <Route path= "/button" component={ButtonAnimated}></Route>
+                          <Route path= "/toasts" component={Toasts}></Route>
                           {/* <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */} 
                     </Switch> 
                 </div> 
